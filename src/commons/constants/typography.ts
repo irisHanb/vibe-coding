@@ -195,4 +195,3 @@ export const getTypographyClass = (
 ): string => {
   return `typo-${device.toLowerCase()}-${category.toLowerCase()}-${name.toLowerCase()}`;
 };
-

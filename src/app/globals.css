@@ -83,8 +83,10 @@
   --color-semantic-info: var(--color-blue-50);
 
   /* Font Families */
-  --font-family-kr: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-  --font-family-en: "SUIT Variable", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-family-kr: Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
+    sans-serif;
+  --font-family-en: "SUIT Variable", -apple-system, BlinkMacSystemFont,
+    system-ui, sans-serif;
 
   /* Font Weights */
   --font-weight-regular: 400;
