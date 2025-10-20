@@ -81,6 +81,127 @@
   --color-semantic-success: var(--color-green-30);
   --color-semantic-warning: var(--color-yellow-30);
   --color-semantic-info: var(--color-blue-50);
+
+  /* Font Families */
+  --font-family-kr: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-family-en: "SUIT Variable", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Web Typography */
+  --typo-web-headline-headline01-font-family: var(--font-family-kr);
+  --typo-web-headline-headline01-font-weight: var(--font-weight-semibold);
+  --typo-web-headline-headline01-font-size: 48px;
+  --typo-web-headline-headline01-line-height: 60px;
+
+  --typo-web-headline-headline02-font-family: var(--font-family-kr);
+  --typo-web-headline-headline02-font-weight: var(--font-weight-semibold);
+  --typo-web-headline-headline02-font-size: 36px;
+  --typo-web-headline-headline02-line-height: 48px;
+
+  --typo-web-headline-headline03-font-family: var(--font-family-kr);
+  --typo-web-headline-headline03-font-weight: var(--font-weight-semibold);
+  --typo-web-headline-headline03-font-size: 28px;
+  --typo-web-headline-headline03-line-height: 36px;
+
+  /* Mobile Typography - Headline */
+  --typo-mobile-headline-headline01-font-family: var(--font-family-kr);
+  --typo-mobile-headline-headline01-font-weight: var(--font-weight-bold);
+  --typo-mobile-headline-headline01-font-size: 24px;
+  --typo-mobile-headline-headline01-line-height: 32px;
+
+  --typo-mobile-headline-headline02-font-family: var(--font-family-kr);
+  --typo-mobile-headline-headline02-font-weight: var(--font-weight-extrabold);
+  --typo-mobile-headline-headline02-font-size: 22px;
+  --typo-mobile-headline-headline02-line-height: 30px;
+
+  --typo-mobile-headline-headline03-font-family: var(--font-family-kr);
+  --typo-mobile-headline-headline03-font-weight: var(--font-weight-bold);
+  --typo-mobile-headline-headline03-font-size: 20px;
+  --typo-mobile-headline-headline03-line-height: 28px;
+
+  /* Mobile Typography - Title */
+  --typo-mobile-title-title01-font-family: var(--font-family-kr);
+  --typo-mobile-title-title01-font-weight: var(--font-weight-bold);
+  --typo-mobile-title-title01-font-size: 18px;
+  --typo-mobile-title-title01-line-height: 24px;
+
+  --typo-mobile-title-title02-font-family: var(--font-family-kr);
+  --typo-mobile-title-title02-font-weight: var(--font-weight-bold);
+  --typo-mobile-title-title02-font-size: 16px;
+  --typo-mobile-title-title02-line-height: 22px;
+
+  --typo-mobile-title-title03-font-family: var(--font-family-kr);
+  --typo-mobile-title-title03-font-weight: var(--font-weight-bold);
+  --typo-mobile-title-title03-font-size: 14px;
+  --typo-mobile-title-title03-line-height: 20px;
+
+  --typo-mobile-title-subtitle01-font-family: var(--font-family-kr);
+  --typo-mobile-title-subtitle01-font-weight: var(--font-weight-semibold);
+  --typo-mobile-title-subtitle01-font-size: 14px;
+  --typo-mobile-title-subtitle01-line-height: 22px;
+
+  --typo-mobile-title-subtitle02-font-family: var(--font-family-kr);
+  --typo-mobile-title-subtitle02-font-weight: var(--font-weight-semibold);
+  --typo-mobile-title-subtitle02-font-size: 12px;
+  --typo-mobile-title-subtitle02-line-height: 18px;
+
+  /* Mobile Typography - Body */
+  --typo-mobile-body-body01-m-font-family: var(--font-family-kr);
+  --typo-mobile-body-body01-m-font-weight: var(--font-weight-medium);
+  --typo-mobile-body-body01-m-font-size: 16px;
+  --typo-mobile-body-body01-m-line-height: 24px;
+
+  --typo-mobile-body-body02-m-font-family: var(--font-family-kr);
+  --typo-mobile-body-body02-m-font-weight: var(--font-weight-medium);
+  --typo-mobile-body-body02-m-font-size: 14px;
+  --typo-mobile-body-body02-m-line-height: 22px;
+
+  --typo-mobile-body-body03-m-font-family: var(--font-family-kr);
+  --typo-mobile-body-body03-m-font-weight: var(--font-weight-medium);
+  --typo-mobile-body-body03-m-font-size: 12px;
+  --typo-mobile-body-body03-m-line-height: 18px;
+
+  --typo-mobile-body-body01-r-font-family: var(--font-family-kr);
+  --typo-mobile-body-body01-r-font-weight: var(--font-weight-regular);
+  --typo-mobile-body-body01-r-font-size: 16px;
+  --typo-mobile-body-body01-r-line-height: 22px;
+
+  --typo-mobile-body-body02-r-font-family: var(--font-family-kr);
+  --typo-mobile-body-body02-r-font-weight: var(--font-weight-regular);
+  --typo-mobile-body-body02-r-font-size: 14px;
+  --typo-mobile-body-body02-r-line-height: 20px;
+
+  --typo-mobile-body-body03-r-font-family: var(--font-family-kr);
+  --typo-mobile-body-body03-r-font-weight: var(--font-weight-regular);
+  --typo-mobile-body-body03-r-font-size: 12px;
+  --typo-mobile-body-body03-r-line-height: 16px;
+
+  /* Mobile Typography - Caption */
+  --typo-mobile-caption-caption01-font-family: var(--font-family-kr);
+  --typo-mobile-caption-caption01-font-weight: var(--font-weight-semibold);
+  --typo-mobile-caption-caption01-font-size: 12px;
+  --typo-mobile-caption-caption01-line-height: 14px;
+
+  --typo-mobile-caption-caption02-m-font-family: var(--font-family-kr);
+  --typo-mobile-caption-caption02-m-font-weight: var(--font-weight-semibold);
+  --typo-mobile-caption-caption02-m-font-size: 10px;
+  --typo-mobile-caption-caption02-m-line-height: 12px;
+
+  --typo-mobile-caption-caption02-s-font-family: var(--font-family-kr);
+  --typo-mobile-caption-caption02-s-font-weight: var(--font-weight-medium);
+  --typo-mobile-caption-caption02-s-font-size: 10px;
+  --typo-mobile-caption-caption02-s-line-height: 12px;
+
+  --typo-mobile-caption-caption03-font-family: var(--font-family-kr);
+  --typo-mobile-caption-caption03-font-weight: var(--font-weight-semibold);
+  --typo-mobile-caption-caption03-font-size: 8px;
+  --typo-mobile-caption-caption03-line-height: 10px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -169,7 +290,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family-kr);
 }
 
 @layer utilities {
