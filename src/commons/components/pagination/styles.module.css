@@ -39,7 +39,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 16px;
 }
 
 /* Page Button Base */
@@ -261,4 +261,3 @@
   font-weight: 500;
   border-color: #777777;
 }
-
