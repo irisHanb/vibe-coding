@@ -1,0 +1,264 @@
+/* Pagination Base Styles */
+.pagination {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: Pretendard Variable, -apple-system, BlinkMacSystemFont, system-ui,
+    sans-serif;
+}
+
+/* Navigation Button */
+.navButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.navButton:hover:not(.disabled) {
+  opacity: 0.7;
+}
+
+.navButton:active:not(.disabled) {
+  opacity: 0.5;
+}
+
+.navButton.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Page Numbers Container */
+.pageNumbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Page Button Base */
+.pageButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  font-family: Pretendard Variable, -apple-system, BlinkMacSystemFont, system-ui,
+    sans-serif;
+}
+
+.pageButton:focus-visible {
+  outline: 2px solid #497cff;
+  outline-offset: 2px;
+}
+
+/* Size Variants */
+
+/* Small Size */
+.small .navButton {
+  width: 20px;
+  height: 20px;
+}
+
+.small .navButton img {
+  width: 20px;
+  height: 20px;
+}
+
+.small .pageButton {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.14px;
+}
+
+/* Medium Size */
+.medium .navButton {
+  width: 24px;
+  height: 24px;
+}
+
+.medium .navButton img {
+  width: 24px;
+  height: 24px;
+}
+
+.medium .pageButton {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+}
+
+/* Large Size */
+.large .navButton {
+  width: 28px;
+  height: 28px;
+}
+
+.large .navButton img {
+  width: 28px;
+  height: 28px;
+}
+
+.large .pageButton {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.18px;
+}
+
+/* Primary Variant - Light Theme */
+.primary.light .pageButton {
+  background-color: #ffffff;
+  color: #777777;
+  font-weight: 400;
+}
+
+.primary.light .pageButton:hover:not(.active) {
+  background-color: #f9f9f9;
+  color: #333333;
+}
+
+.primary.light .pageButton:active:not(.active) {
+  background-color: #f2f2f2;
+}
+
+.primary.light .pageButton.active {
+  background-color: #f2f2f2;
+  color: #000000;
+  font-weight: 500;
+}
+
+/* Primary Variant - Dark Theme */
+.primary.dark .pageButton {
+  background-color: #1c1c1c;
+  color: #ababab;
+  font-weight: 400;
+}
+
+.primary.dark .pageButton:hover:not(.active) {
+  background-color: #2a2a2a;
+  color: #d4d3d3;
+}
+
+.primary.dark .pageButton:active:not(.active) {
+  background-color: #333333;
+}
+
+.primary.dark .pageButton.active {
+  background-color: #333333;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Secondary Variant - Light Theme */
+.secondary.light .pageButton {
+  background-color: #e8efff;
+  color: #497cff;
+  font-weight: 400;
+}
+
+.secondary.light .pageButton:hover:not(.active) {
+  background-color: #d6e3ff;
+  color: #3a5cf3;
+}
+
+.secondary.light .pageButton:active:not(.active) {
+  background-color: #c4d7ff;
+}
+
+.secondary.light .pageButton.active {
+  background-color: #497cff;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Secondary Variant - Dark Theme */
+.secondary.dark .pageButton {
+  background-color: #1a2a4d;
+  color: #6da5fa;
+  font-weight: 400;
+}
+
+.secondary.dark .pageButton:hover:not(.active) {
+  background-color: #243761;
+  color: #93beff;
+}
+
+.secondary.dark .pageButton:active:not(.active) {
+  background-color: #2e4475;
+}
+
+.secondary.dark .pageButton.active {
+  background-color: #6da5fa;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Tertiary Variant - Light Theme */
+.tertiary.light .pageButton {
+  background-color: transparent;
+  color: #777777;
+  font-weight: 400;
+  border: 1px solid #d4d3d3;
+}
+
+.tertiary.light .pageButton:hover:not(.active) {
+  background-color: #f9f9f9;
+  color: #333333;
+  border-color: #ababab;
+}
+
+.tertiary.light .pageButton:active:not(.active) {
+  background-color: #f2f2f2;
+  border-color: #919191;
+}
+
+.tertiary.light .pageButton.active {
+  background-color: #f2f2f2;
+  color: #000000;
+  font-weight: 500;
+  border-color: #ababab;
+}
+
+/* Tertiary Variant - Dark Theme */
+.tertiary.dark .pageButton {
+  background-color: transparent;
+  color: #ababab;
+  font-weight: 400;
+  border: 1px solid #5f5f5f;
+}
+
+.tertiary.dark .pageButton:hover:not(.active) {
+  background-color: #1c1c1c;
+  color: #d4d3d3;
+  border-color: #777777;
+}
+
+.tertiary.dark .pageButton:active:not(.active) {
+  background-color: #2a2a2a;
+  border-color: #919191;
+}
+
+.tertiary.dark .pageButton.active {
+  background-color: #333333;
+  color: #ffffff;
+  font-weight: 500;
+  border-color: #777777;
+}
+
