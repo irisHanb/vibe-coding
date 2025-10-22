@@ -1,0 +1,236 @@
+/* SearchBar Base Styles */
+.searchBar {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 100px;
+  width: fit-content;
+  transition: all 0.2s ease;
+}
+
+.searchBar.fullWidth {
+  width: 100%;
+}
+
+/* Icon Wrapper */
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.searchIcon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+/* Input Base */
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-family-kr);
+  color: inherit;
+}
+
+.input::placeholder {
+  color: var(--color-gray-40);
+}
+
+/* Disabled State */
+.searchBar.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.searchBar.disabled .input {
+  cursor: not-allowed;
+}
+
+/* ==================== SIZE VARIANTS ==================== */
+
+/* Small Size */
+.searchBar.small {
+  height: 40px;
+  padding: 8px 16px;
+  gap: 8px;
+}
+
+.searchBar.small .input {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: -0.14px;
+}
+
+.searchBar.small .iconWrapper {
+  width: 20px;
+  height: 20px;
+}
+
+.searchBar.small .searchIcon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Medium Size */
+.searchBar.medium {
+  height: 48px;
+  padding: 12px 16px;
+  gap: 8px;
+}
+
+.searchBar.medium .input {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.16px;
+}
+
+.searchBar.medium .iconWrapper {
+  width: 24px;
+  height: 24px;
+}
+
+.searchBar.medium .searchIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Large Size */
+.searchBar.large {
+  height: 56px;
+  padding: 16px 20px;
+  gap: 12px;
+}
+
+.searchBar.large .input {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.18px;
+}
+
+.searchBar.large .iconWrapper {
+  width: 24px;
+  height: 24px;
+}
+
+.searchBar.large .searchIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* ==================== THEME + VARIANT COMBINATIONS ==================== */
+
+/* Primary - Light Theme */
+.searchBar.primary.light {
+  background-color: var(--color-gray-white);
+  border: 1px solid var(--color-gray-30);
+}
+
+.searchBar.primary.light .input {
+  color: var(--color-gray-90);
+}
+
+.searchBar.primary.light .input::placeholder {
+  color: var(--color-gray-40);
+}
+
+.searchBar.primary.light:focus-within {
+  border-color: var(--color-blue-50);
+}
+
+/* Primary - Dark Theme */
+.searchBar.primary.dark {
+  background-color: var(--color-gray-90);
+  border: 1px solid var(--color-gray-60);
+}
+
+.searchBar.primary.dark .input {
+  color: var(--color-gray-white);
+}
+
+.searchBar.primary.dark .input::placeholder {
+  color: var(--color-gray-50);
+}
+
+.searchBar.primary.dark:focus-within {
+  border-color: var(--color-blue-40);
+}
+
+/* Secondary - Light Theme */
+.searchBar.secondary.light {
+  background-color: var(--color-gray-05);
+  border: 1px solid var(--color-gray-20);
+}
+
+.searchBar.secondary.light .input {
+  color: var(--color-gray-90);
+}
+
+.searchBar.secondary.light .input::placeholder {
+  color: var(--color-gray-40);
+}
+
+.searchBar.secondary.light:focus-within {
+  border-color: var(--color-gray-40);
+}
+
+/* Secondary - Dark Theme */
+.searchBar.secondary.dark {
+  background-color: var(--color-gray-80);
+  border: 1px solid var(--color-gray-70);
+}
+
+.searchBar.secondary.dark .input {
+  color: var(--color-gray-white);
+}
+
+.searchBar.secondary.dark .input::placeholder {
+  color: var(--color-gray-50);
+}
+
+.searchBar.secondary.dark:focus-within {
+  border-color: var(--color-gray-50);
+}
+
+/* Tertiary - Light Theme */
+.searchBar.tertiary.light {
+  background-color: transparent;
+  border: 1px solid var(--color-gray-30);
+}
+
+.searchBar.tertiary.light .input {
+  color: var(--color-gray-90);
+}
+
+.searchBar.tertiary.light .input::placeholder {
+  color: var(--color-gray-40);
+}
+
+.searchBar.tertiary.light:focus-within {
+  border-color: var(--color-gray-50);
+}
+
+/* Tertiary - Dark Theme */
+.searchBar.tertiary.dark {
+  background-color: transparent;
+  border: 1px solid var(--color-gray-60);
+}
+
+.searchBar.tertiary.dark .input {
+  color: var(--color-gray-white);
+}
+
+.searchBar.tertiary.dark .input::placeholder {
+  color: var(--color-gray-50);
+}
+
+.searchBar.tertiary.dark:focus-within {
+  border-color: var(--color-gray-40);
+}
+

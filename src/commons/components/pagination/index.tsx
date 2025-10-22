@@ -81,7 +81,9 @@ export const Pagination: React.FC<PaginationProps> = ({
   return (
     <div className={paginationClasses}>
       <button
-        className={`${styles.navButton} ${isPrevDisabled ? styles.disabled : ""}`}
+        className={`${styles.navButton} ${
+          isPrevDisabled ? styles.disabled : ""
+        }`}
         onClick={handlePrevious}
         disabled={isPrevDisabled}
         aria-label="Previous page"
@@ -115,7 +117,9 @@ export const Pagination: React.FC<PaginationProps> = ({
       </div>
 
       <button
-        className={`${styles.navButton} ${isNextDisabled ? styles.disabled : ""}`}
+        className={`${styles.navButton} ${
+          isNextDisabled ? styles.disabled : ""
+        }`}
         onClick={handleNext}
         disabled={isNextDisabled}
         aria-label="Next page"
@@ -136,4 +140,3 @@ export const Pagination: React.FC<PaginationProps> = ({
 };
 
 export default Pagination;
-
