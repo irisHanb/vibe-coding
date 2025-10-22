@@ -108,7 +108,9 @@ export const Selectbox: React.FC<SelectboxProps> = ({
     <div className={styles.selectboxContainer} ref={selectboxRef}>
       <div className={selectboxClasses} onClick={handleToggle}>
         <span
-          className={`${styles.text} ${!selectedValue ? styles.placeholder : ""}`}
+          className={`${styles.text} ${
+            !selectedValue ? styles.placeholder : ""
+          }`}
         >
           {displayText}
         </span>
@@ -140,4 +142,3 @@ export const Selectbox: React.FC<SelectboxProps> = ({
 };
 
 export default Selectbox;
-
