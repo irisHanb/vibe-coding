@@ -5,7 +5,6 @@
   box-sizing: border-box;
   border-radius: 100px;
   width: fit-content;
-  transition: all 0.2s ease;
 }
 
 .searchBar.fullWidth {
@@ -233,4 +232,3 @@
 .searchBar.tertiary.dark:focus-within {
   border-color: var(--color-gray-40);
 }
-
