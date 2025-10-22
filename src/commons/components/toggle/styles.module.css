@@ -1,0 +1,233 @@
+/* Base Toggle Styles */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  padding: 0;
+}
+
+.toggle:focus-visible {
+  outline: 2px solid #497cff;
+  outline-offset: 2px;
+}
+
+.toggle:active:not(.disabled) {
+  transform: scale(0.98);
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* State Classes */
+.checked {
+  justify-content: flex-end;
+}
+
+.unchecked {
+  justify-content: flex-start;
+}
+
+/* Thumb (Circle) */
+.thumb {
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+}
+
+/* Size Variants */
+/* Small: 44x24, thumb: 18x18 */
+.small {
+  width: 44px;
+  height: 24px;
+  min-width: 44px;
+  padding: 3px;
+}
+
+.small .thumb {
+  width: 18px;
+  height: 18px;
+}
+
+/* Medium: 58x32, thumb: 24x24 (Figma 기준) */
+.medium {
+  width: 58px;
+  height: 32px;
+  min-width: 58px;
+  padding: 4px;
+}
+
+.medium .thumb {
+  width: 24px;
+  height: 24px;
+}
+
+/* Large: 72x40, thumb: 32x32 */
+.large {
+  width: 72px;
+  height: 40px;
+  min-width: 72px;
+  padding: 4px;
+}
+
+.large .thumb {
+  width: 32px;
+  height: 32px;
+}
+
+/* Primary Variant - Light Theme */
+.primary.light.unchecked {
+  background-color: #e4e4e4;
+}
+
+.primary.light.checked {
+  background-color: #3ad84a; /* Figma 디자인 정확한 색상 */
+}
+
+.primary.light.unchecked:hover:not(.disabled) {
+  background-color: #d4d3d3;
+}
+
+.primary.light.checked:hover:not(.disabled) {
+  background-color: #2dc23e;
+}
+
+.primary.light.unchecked:active:not(.disabled) {
+  background-color: #c7c7c7;
+}
+
+.primary.light.checked:active:not(.disabled) {
+  background-color: #25a535;
+}
+
+/* Primary Variant - Dark Theme */
+.primary.dark.unchecked {
+  background-color: #5f5f5f;
+}
+
+.primary.dark.checked {
+  background-color: #15d66f;
+}
+
+.primary.dark.unchecked:hover:not(.disabled) {
+  background-color: #777777;
+}
+
+.primary.dark.checked:hover:not(.disabled) {
+  background-color: #12b75f;
+}
+
+.primary.dark.unchecked:active:not(.disabled) {
+  background-color: #919191;
+}
+
+.primary.dark.checked:active:not(.disabled) {
+  background-color: #109c51;
+}
+
+/* Secondary Variant - Light Theme */
+.secondary.light.unchecked {
+  background-color: #dddfe5;
+}
+
+.secondary.light.checked {
+  background-color: #497cff;
+}
+
+.secondary.light.unchecked:hover:not(.disabled) {
+  background-color: #d2d4dd;
+}
+
+.secondary.light.checked:hover:not(.disabled) {
+  background-color: #3a5cf3;
+}
+
+.secondary.light.unchecked:active:not(.disabled) {
+  background-color: #c7c9d5;
+}
+
+.secondary.light.checked:active:not(.disabled) {
+  background-color: #274ae1;
+}
+
+/* Secondary Variant - Dark Theme */
+.secondary.dark.unchecked {
+  background-color: #5f5f5f;
+}
+
+.secondary.dark.checked {
+  background-color: #6da5fa;
+}
+
+.secondary.dark.unchecked:hover:not(.disabled) {
+  background-color: #777777;
+}
+
+.secondary.dark.checked:hover:not(.disabled) {
+  background-color: #93beff;
+}
+
+.secondary.dark.unchecked:active:not(.disabled) {
+  background-color: #919191;
+}
+
+.secondary.dark.checked:active:not(.disabled) {
+  background-color: #497cff;
+}
+
+/* Tertiary Variant - Light Theme */
+.tertiary.light.unchecked {
+  background-color: #c7c7c7;
+}
+
+.tertiary.light.checked {
+  background-color: #ffb300;
+}
+
+.tertiary.light.unchecked:hover:not(.disabled) {
+  background-color: #ababab;
+}
+
+.tertiary.light.checked:hover:not(.disabled) {
+  background-color: #eba500;
+}
+
+.tertiary.light.unchecked:active:not(.disabled) {
+  background-color: #919191;
+}
+
+.tertiary.light.checked:active:not(.disabled) {
+  background-color: #d69600;
+}
+
+/* Tertiary Variant - Dark Theme */
+.tertiary.dark.unchecked {
+  background-color: #5f5f5f;
+}
+
+.tertiary.dark.checked {
+  background-color: #ffc933;
+}
+
+.tertiary.dark.unchecked:hover:not(.disabled) {
+  background-color: #777777;
+}
+
+.tertiary.dark.checked:hover:not(.disabled) {
+  background-color: #ffb300;
+}
+
+.tertiary.dark.unchecked:active:not(.disabled) {
+  background-color: #919191;
+}
+
+.tertiary.dark.checked:active:not(.disabled) {
+  background-color: #eba500;
+}
