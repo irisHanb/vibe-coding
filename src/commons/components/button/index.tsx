@@ -1,52 +1,38 @@
-import React from "react";
 import styles from "./styles.module.css";
 
-export type ButtonVariant = "primary" | "secondary" | "tertiary";
-export type ButtonSize = "small" | "medium" | "large";
-export type ButtonTheme = "light" | "dark";
-
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariant;
-  size?: ButtonSize;
-  theme?: ButtonTheme;
+export interface ButtonProps {
   children: React.ReactNode;
-  fullWidth?: boolean;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
+  variant?: "primary" | "secondary" | "tertiary";
+  size?: "small" | "medium" | "large";
+  theme?: "light" | "dark";
+  onClick?: () => void;
+  disabled?: boolean;
+  className?: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export default function Button({
+  children,
   variant = "primary",
   size = "medium",
   theme = "light",
-  children,
-  fullWidth = false,
-  leftIcon,
-  rightIcon,
-  className = "",
+  onClick,
   disabled = false,
-  ...props
-}) => {
+  className = "",
+}: ButtonProps) {
   const buttonClasses = [
     styles.button,
     styles[variant],
     styles[size],
     styles[theme],
-    fullWidth ? styles.fullWidth : "",
-    disabled ? styles.disabled : "",
+    disabled && styles.disabled,
     className,
   ]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <button className={buttonClasses} disabled={disabled} {...props}>
-      {leftIcon && <span className={styles.leftIcon}>{leftIcon}</span>}
-      <span className={styles.text}>{children}</span>
-      {rightIcon && <span className={styles.rightIcon}>{rightIcon}</span>}
+    <button className={buttonClasses} onClick={onClick} disabled={disabled}>
+      {children}
     </button>
   );
-};
-
-export default Button;
+}
