@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.header {
+  width: 1168px;
+  height: 60px;
+  background-color: var(--color-gray-10);
+}
+
+.gap {
+  width: 1168px;
+  height: 24px;
+}
+
+.banner {
+  width: 1168px;
+  height: 240px;
+  background-color: var(--color-gray-10);
+}
+
+.navigation {
+  width: 1168px;
+  height: 48px;
+  background-color: var(--color-gray-10);
+}
+
+.main {
+  width: 1168px;
+  flex: 1;
+  background-color: var(--color-gray-05);
+}
+
+.footer {
+  width: 1168px;
+  height: 160px;
+  background-color: var(--color-gray-10);
+}
+
