@@ -34,17 +34,19 @@ export const Selectbox: React.FC<SelectboxProps> = ({
   disabled = false,
   placeholder = "선택하세요",
   options = [],
-  value = "",
+  value,
   onChange,
   className = "",
 }) => {
+  const initialValue = value ?? (options.length > 0 ? options[0].value : "");
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(value);
+  const [selectedValue, setSelectedValue] = useState(initialValue);
   const selectboxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setSelectedValue(value);
-  }, [value]);
+    const newValue = value ?? (options.length > 0 ? options[0].value : "");
+    setSelectedValue(newValue);
+  }, [value, options]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -82,12 +84,17 @@ export const Selectbox: React.FC<SelectboxProps> = ({
   const selectedOption = options.find((opt) => opt.value === selectedValue);
   const displayText = selectedOption ? selectedOption.label : placeholder;
 
+  const containerClasses = [
+    styles.selectboxContainer,
+    fullWidth ? styles.fullWidth : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   const selectboxClasses = [
     styles.selectbox,
-    styles[variant],
+    styles[`${variant}__${theme}`],
     styles[size],
-    styles[theme],
-    fullWidth ? styles.fullWidth : "",
     disabled ? styles.disabled : "",
     isOpen ? styles.open : "",
     className,
@@ -97,16 +104,32 @@ export const Selectbox: React.FC<SelectboxProps> = ({
 
   const dropdownClasses = [
     styles.dropdown,
-    styles[size],
-    styles[theme],
+    styles[`dropdown__${variant}__${theme}`],
+    styles[`dropdown__${size}`],
     isOpen ? styles.dropdownOpen : "",
   ]
     .filter(Boolean)
     .join(" ");
 
   return (
-    <div className={styles.selectboxContainer} ref={selectboxRef}>
-      <div className={selectboxClasses} onClick={handleToggle}>
+    <div className={containerClasses} ref={selectboxRef}>
+      <div
+        className={selectboxClasses}
+        onClick={handleToggle}
+        role="combobox"
+        aria-expanded={isOpen}
+        aria-haspopup="listbox"
+        aria-disabled={disabled}
+        tabIndex={disabled ? -1 : 0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            handleToggle();
+          } else if (e.key === "Escape" && isOpen) {
+            setIsOpen(false);
+          }
+        }}
+      >
         <span
           className={`${styles.text} ${
             !selectedValue ? styles.placeholder : ""
@@ -123,7 +146,7 @@ export const Selectbox: React.FC<SelectboxProps> = ({
         />
       </div>
       {isOpen && !disabled && (
-        <div className={dropdownClasses}>
+        <div className={dropdownClasses} role="listbox">
           {options.map((option) => (
             <div
               key={option.value}
@@ -131,6 +154,15 @@ export const Selectbox: React.FC<SelectboxProps> = ({
                 option.value === selectedValue ? styles.optionSelected : ""
               }`}
               onClick={() => handleSelect(option.value)}
+              role="option"
+              aria-selected={option.value === selectedValue}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  handleSelect(option.value);
+                }
+              }}
             >
               {option.label}
             </div>

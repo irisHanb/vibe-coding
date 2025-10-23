@@ -10,17 +10,36 @@
 
 ==============================================
 
-조건-피그마) 활용할MCP: CursorTalkToFigmaMCP(채널명: e99libt0)
-조건-피그마) 참고할 공통컴포넌트 노드ID: 3:1561
+조건-피그마) 활용할MCP: CursorTalkToFigmaMCP(채널명: vjfaqzai)
+조건-피그마) 참고할 공통컴포넌트 노드ID: 5684:1095
 
 조건-파일경로) 구현될 TSX 파일경로: src/commons/components/selectbox/index.tsx
 조건-파일경로) 구현될 CSS 파일경로: src/commons/components/selectbox/styles.module.css
 
 ==============================================
 
-핵심요구사항) MCP를 연동하여 피그마의 디자인을 그대로 소스코드로 구현할 것.
+기존히스토리-참고만) MCP를 연동하여 피그마의 디자인을 그대로 소스코드로 구현할 것.
 
-핵심요구사항) 다음 조건을 모두 만족하는 완전한 variant 시스템을 구현할 것.
+기존히스토리-참고만) 다음 조건을 모두 만족하는 완전한 variant 시스템을 구현할 것.
             - variant: 'primary' | 'secondary' | 'tertiary'
             - size: 'small' | 'medium' | 'large'
             - theme: 'light' | 'dark'
+
+
+============================================== 
+
+기존히스토리-참고만) _selectboxContainer 테두리를 피그마 디자인과 일치시켜줘
+
+기존히스토리-참고만) 초기 선택은 첫번째 옵션으로 수정
+
+기존히스토리_참고만) 전체 너비는 130px 로 고정
+
+==============================================
+
+기존히스토리_참고만) class 이름이 "_selectbox" 를 다음과 같이 수정해줘
+            - arrow 아이콘은 public/icons/arrow_drop_down.svg 을 사용
+            - 테두리는 1px Gray/Gray30
+
+==============================================
+
+핵심요구사항) arrow 아이콘은 public/icons/arrow_drop_down.svg 을 사용하고, 스타일에서 사이즈 삭제

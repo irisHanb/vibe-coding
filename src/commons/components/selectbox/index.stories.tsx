@@ -1,6 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 import { Selectbox } from "./index";
 
+const sampleOptions = [
+  { value: "all", label: "전체" },
+  { value: "happy", label: "행복해요" },
+  { value: "sad", label: "슬퍼요" },
+  { value: "surprise", label: "놀랐어요" },
+  { value: "angry", label: "화나요" },
+  { value: "etc", label: "기타" },
+];
+
 const meta = {
   title: "Commons/Components/Selectbox",
   component: Selectbox,
@@ -34,7 +43,7 @@ const meta = {
     },
     placeholder: {
       control: "text",
-      description: "셀렉트박스의 플레이스홀더 텍스트",
+      description: "셀렉트박스의 플레이스홀더",
     },
   },
 } satisfies Meta<typeof Selectbox>;
@@ -42,21 +51,13 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const sampleOptions = [
-  { value: "1", label: "옵션 1" },
-  { value: "2", label: "옵션 2" },
-  { value: "3", label: "옵션 3" },
-  { value: "4", label: "옵션 4" },
-  { value: "5", label: "옵션 5" },
-];
-
 export const Primary: Story = {
   args: {
     variant: "primary",
     size: "medium",
     theme: "light",
-    placeholder: "선택하세요",
     options: sampleOptions,
+    placeholder: "선택하세요",
   },
 };
 
@@ -65,8 +66,8 @@ export const Secondary: Story = {
     variant: "secondary",
     size: "medium",
     theme: "light",
-    placeholder: "선택하세요",
     options: sampleOptions,
+    placeholder: "선택하세요",
   },
 };
 
@@ -75,28 +76,38 @@ export const Tertiary: Story = {
     variant: "tertiary",
     size: "medium",
     theme: "light",
-    placeholder: "선택하세요",
     options: sampleOptions,
+    placeholder: "선택하세요",
   },
 };
 
 export const Small: Story = {
   args: {
-    variant: "primary",
+    variant: "tertiary",
     size: "small",
     theme: "light",
-    placeholder: "선택하세요",
     options: sampleOptions,
+    placeholder: "선택하세요",
+  },
+};
+
+export const Medium: Story = {
+  args: {
+    variant: "tertiary",
+    size: "medium",
+    theme: "light",
+    options: sampleOptions,
+    placeholder: "선택하세요",
   },
 };
 
 export const Large: Story = {
   args: {
-    variant: "primary",
+    variant: "tertiary",
     size: "large",
     theme: "light",
-    placeholder: "선택하세요",
     options: sampleOptions,
+    placeholder: "선택하세요",
   },
 };
 
@@ -105,8 +116,8 @@ export const DarkTheme: Story = {
     variant: "primary",
     size: "medium",
     theme: "dark",
-    placeholder: "선택하세요",
     options: sampleOptions,
+    placeholder: "선택하세요",
   },
   parameters: {
     backgrounds: { default: "dark" },
@@ -115,12 +126,12 @@ export const DarkTheme: Story = {
 
 export const FullWidth: Story = {
   args: {
-    variant: "primary",
+    variant: "tertiary",
     size: "medium",
     theme: "light",
     fullWidth: true,
-    placeholder: "선택하세요",
     options: sampleOptions,
+    placeholder: "선택하세요",
   },
   parameters: {
     layout: "padded",
@@ -129,43 +140,22 @@ export const FullWidth: Story = {
 
 export const Disabled: Story = {
   args: {
-    variant: "primary",
+    variant: "tertiary",
     size: "medium",
     theme: "light",
     disabled: true,
-    placeholder: "선택하세요",
     options: sampleOptions,
+    placeholder: "선택하세요",
   },
 };
 
-export const WithDefaultValue: Story = {
+export const WithValue: Story = {
   args: {
-    variant: "primary",
+    variant: "tertiary",
     size: "medium",
     theme: "light",
-    value: "2",
     options: sampleOptions,
-  },
-};
-
-export const WithManyOptions: Story = {
-  args: {
-    variant: "primary",
-    size: "medium",
-    theme: "light",
-    placeholder: "선택하세요",
-    options: [
-      { value: "1", label: "옵션 1" },
-      { value: "2", label: "옵션 2" },
-      { value: "3", label: "옵션 3" },
-      { value: "4", label: "옵션 4" },
-      { value: "5", label: "옵션 5" },
-      { value: "6", label: "옵션 6" },
-      { value: "7", label: "옵션 7" },
-      { value: "8", label: "옵션 8" },
-      { value: "9", label: "옵션 9" },
-      { value: "10", label: "옵션 10" },
-    ],
+    value: "happy",
   },
 };
 
@@ -179,127 +169,60 @@ export const AllVariants: Story = {
         <Selectbox
           variant="primary"
           size="small"
+          options={sampleOptions}
           placeholder="Primary Small"
-          options={sampleOptions}
         />
         <Selectbox
           variant="primary"
           size="medium"
+          options={sampleOptions}
           placeholder="Primary Medium"
-          options={sampleOptions}
         />
         <Selectbox
           variant="primary"
           size="large"
+          options={sampleOptions}
           placeholder="Primary Large"
-          options={sampleOptions}
         />
       </div>
       <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
         <Selectbox
           variant="secondary"
           size="small"
+          options={sampleOptions}
           placeholder="Secondary Small"
-          options={sampleOptions}
         />
         <Selectbox
           variant="secondary"
           size="medium"
-          placeholder="Secondary Medium"
           options={sampleOptions}
+          placeholder="Secondary Medium"
         />
         <Selectbox
           variant="secondary"
           size="large"
-          placeholder="Secondary Large"
           options={sampleOptions}
+          placeholder="Secondary Large"
         />
       </div>
       <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
         <Selectbox
           variant="tertiary"
           size="small"
-          placeholder="Tertiary Small"
           options={sampleOptions}
+          placeholder="Tertiary Small"
         />
         <Selectbox
           variant="tertiary"
           size="medium"
-          placeholder="Tertiary Medium"
           options={sampleOptions}
+          placeholder="Tertiary Medium"
         />
         <Selectbox
           variant="tertiary"
           size="large"
+          options={sampleOptions}
           placeholder="Tertiary Large"
-          options={sampleOptions}
-        />
-      </div>
-    </div>
-  ),
-};
-
-export const AllStates: Story = {
-  args: {
-    options: sampleOptions,
-  },
-  render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-        <Selectbox
-          variant="primary"
-          placeholder="Normal"
-          options={sampleOptions}
-        />
-        <Selectbox
-          variant="primary"
-          disabled
-          placeholder="Disabled"
-          options={sampleOptions}
-        />
-        <Selectbox
-          variant="primary"
-          value="2"
-          placeholder="Selected"
-          options={sampleOptions}
-        />
-      </div>
-      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-        <Selectbox
-          variant="secondary"
-          placeholder="Normal"
-          options={sampleOptions}
-        />
-        <Selectbox
-          variant="secondary"
-          disabled
-          placeholder="Disabled"
-          options={sampleOptions}
-        />
-        <Selectbox
-          variant="secondary"
-          value="2"
-          placeholder="Selected"
-          options={sampleOptions}
-        />
-      </div>
-      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-        <Selectbox
-          variant="tertiary"
-          placeholder="Normal"
-          options={sampleOptions}
-        />
-        <Selectbox
-          variant="tertiary"
-          disabled
-          placeholder="Disabled"
-          options={sampleOptions}
-        />
-        <Selectbox
-          variant="tertiary"
-          value="2"
-          placeholder="Selected"
-          options={sampleOptions}
         />
       </div>
     </div>
@@ -314,24 +237,24 @@ export const AllThemes: Story = {
     <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
       <div>
         <h3 style={{ marginBottom: "1rem" }}>Light Theme</h3>
-        <div style={{ display: "flex", gap: "1rem" }}>
+        <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
           <Selectbox
             variant="primary"
             theme="light"
-            placeholder="Primary"
             options={sampleOptions}
+            placeholder="Primary"
           />
           <Selectbox
             variant="secondary"
             theme="light"
-            placeholder="Secondary"
             options={sampleOptions}
+            placeholder="Secondary"
           />
           <Selectbox
             variant="tertiary"
             theme="light"
-            placeholder="Tertiary"
             options={sampleOptions}
+            placeholder="Tertiary"
           />
         </div>
       </div>
@@ -343,27 +266,138 @@ export const AllThemes: Story = {
         }}
       >
         <h3 style={{ marginBottom: "1rem", color: "white" }}>Dark Theme</h3>
-        <div style={{ display: "flex", gap: "1rem" }}>
+        <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
           <Selectbox
             variant="primary"
             theme="dark"
-            placeholder="Primary"
             options={sampleOptions}
+            placeholder="Primary"
           />
           <Selectbox
             variant="secondary"
             theme="dark"
-            placeholder="Secondary"
             options={sampleOptions}
+            placeholder="Secondary"
           />
           <Selectbox
             variant="tertiary"
             theme="dark"
-            placeholder="Tertiary"
             options={sampleOptions}
+            placeholder="Tertiary"
           />
         </div>
       </div>
     </div>
   ),
+};
+
+export const AllStates: Story = {
+  args: {
+    options: sampleOptions,
+  },
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+        <Selectbox
+          variant="primary"
+          options={sampleOptions}
+          placeholder="Normal"
+        />
+        <Selectbox
+          variant="primary"
+          options={sampleOptions}
+          placeholder="Disabled"
+          disabled
+        />
+      </div>
+      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+        <Selectbox
+          variant="secondary"
+          options={sampleOptions}
+          placeholder="Normal"
+        />
+        <Selectbox
+          variant="secondary"
+          options={sampleOptions}
+          placeholder="Disabled"
+          disabled
+        />
+      </div>
+      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+        <Selectbox
+          variant="tertiary"
+          options={sampleOptions}
+          placeholder="Normal"
+        />
+        <Selectbox
+          variant="tertiary"
+          options={sampleOptions}
+          placeholder="Disabled"
+          disabled
+        />
+      </div>
+    </div>
+  ),
+};
+
+export const AllCombinations: Story = {
+  args: {
+    options: sampleOptions,
+  },
+  render: () => {
+    const variants = ["primary", "secondary", "tertiary"] as const;
+    const sizes = ["small", "medium", "large"] as const;
+    const themes = ["light", "dark"] as const;
+
+    return (
+      <div style={{ display: "flex", flexDirection: "column", gap: "3rem" }}>
+        {themes.map((theme) => (
+          <div
+            key={theme}
+            style={{
+              padding: "1.5rem",
+              backgroundColor: theme === "dark" ? "#1a1a1a" : "#ffffff",
+              borderRadius: "8px",
+            }}
+          >
+            <h3
+              style={{
+                marginBottom: "1.5rem",
+                color: theme === "dark" ? "white" : "black",
+              }}
+            >
+              {theme.charAt(0).toUpperCase() + theme.slice(1)} Theme
+            </h3>
+            {variants.map((variant) => (
+              <div key={variant} style={{ marginBottom: "1.5rem" }}>
+                <h4
+                  style={{
+                    marginBottom: "0.75rem",
+                    color: theme === "dark" ? "white" : "black",
+                    fontSize: "0.875rem",
+                  }}
+                >
+                  {variant.charAt(0).toUpperCase() + variant.slice(1)}
+                </h4>
+                <div
+                  style={{ display: "flex", gap: "1rem", alignItems: "center" }}
+                >
+                  {sizes.map((size) => (
+                    <Selectbox
+                      key={size}
+                      variant={variant}
+                      size={size}
+                      theme={theme}
+                      options={sampleOptions}
+                      placeholder={`${size}`}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    );
+  },
 };
