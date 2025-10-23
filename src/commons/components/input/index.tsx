@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./styles.module.css";
 
 export interface InputProps {
@@ -13,7 +14,7 @@ export interface InputProps {
   readOnly?: boolean;
   type?: string;
   className?: string;
-  icon?: React.ReactNode;
+  showSearchIcon?: boolean;
 }
 
 export default function Input({
@@ -29,7 +30,7 @@ export default function Input({
   readOnly = false,
   type = "text",
   className = "",
-  icon,
+  showSearchIcon = false,
 }: InputProps) {
   const containerClasses = [
     styles.inputContainer,
@@ -48,7 +49,17 @@ export default function Input({
 
   return (
     <div className={containerClasses}>
-      {icon && <div className={styles.icon}>{icon}</div>}
+      {showSearchIcon && (
+        <div className={styles.iconWrapper}>
+          <Image
+            src="/icons/search_outline_light_m.svg"
+            alt="search"
+            width={24}
+            height={24}
+            className={styles.icon}
+          />
+        </div>
+      )}
       <input
         type={type}
         value={value}
@@ -63,4 +74,3 @@ export default function Input({
     </div>
   );
 }
-

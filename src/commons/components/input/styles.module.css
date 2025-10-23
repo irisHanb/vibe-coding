@@ -5,13 +5,7 @@
   box-sizing: border-box;
   border-radius: 100px;
   font-family: var(--font-family-kr);
-  transition: all 0.2s ease-in-out;
   gap: 8px;
-}
-
-.inputContainer:focus-within {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
 }
 
 /* Input Element */
@@ -33,11 +27,17 @@
   cursor: not-allowed;
 }
 
-/* Icon Container */
-.icon {
+/* Icon Wrapper */
+.iconWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Icon */
+.icon {
+  display: block;
   flex-shrink: 0;
 }
 
@@ -47,7 +47,7 @@
   padding: 0 16px;
 }
 
-.small .icon {
+.small .iconWrapper {
   width: 20px;
   height: 20px;
 }
@@ -63,7 +63,7 @@
   padding: 0 16px;
 }
 
-.medium .icon {
+.medium .iconWrapper {
   width: 24px;
   height: 24px;
 }
@@ -79,7 +79,7 @@
   padding: 0 20px;
 }
 
-.large .icon {
+.large .iconWrapper {
   width: 28px;
   height: 28px;
 }
@@ -215,4 +215,3 @@
 .inputContainer.disabled .input {
   cursor: not-allowed;
 }
-
