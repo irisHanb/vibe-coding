@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs-vite";
-import { Input } from "./index";
+import Input from "./index";
 
 const meta = {
   title: "Commons/Components/Input",
@@ -12,33 +12,29 @@ const meta = {
     variant: {
       control: "select",
       options: ["primary", "secondary", "tertiary"],
-      description: "인풋의 스타일 변형",
+      description: "Input variant style",
     },
     size: {
       control: "select",
       options: ["small", "medium", "large"],
-      description: "인풋의 크기",
+      description: "Input size",
     },
     theme: {
       control: "select",
       options: ["light", "dark"],
-      description: "인풋의 테마",
-    },
-    fullWidth: {
-      control: "boolean",
-      description: "인풋의 너비를 100%로 설정",
-    },
-    error: {
-      control: "boolean",
-      description: "인풋의 에러 상태",
+      description: "Theme mode",
     },
     disabled: {
       control: "boolean",
-      description: "인풋의 비활성화 상태",
+      description: "Disabled state",
     },
-    placeholder: {
+    readOnly: {
+      control: "boolean",
+      description: "Read-only state",
+    },
+    type: {
       control: "text",
-      description: "인풋에 표시될 플레이스홀더",
+      description: "Input type",
     },
   },
 } satisfies Meta<typeof Input>;
@@ -51,7 +47,7 @@ export const Primary: Story = {
     variant: "primary",
     size: "medium",
     theme: "light",
-    placeholder: "Primary Input",
+    placeholder: "검색어를 입력해 주세요.",
   },
 };
 
@@ -60,7 +56,7 @@ export const Secondary: Story = {
     variant: "secondary",
     size: "medium",
     theme: "light",
-    placeholder: "Secondary Input",
+    placeholder: "검색어를 입력해 주세요.",
   },
 };
 
@@ -69,7 +65,7 @@ export const Tertiary: Story = {
     variant: "tertiary",
     size: "medium",
     theme: "light",
-    placeholder: "Tertiary Input",
+    placeholder: "검색어를 입력해 주세요.",
   },
 };
 
@@ -78,7 +74,16 @@ export const Small: Story = {
     variant: "primary",
     size: "small",
     theme: "light",
-    placeholder: "Small Input",
+    placeholder: "검색어를 입력해 주세요.",
+  },
+};
+
+export const Medium: Story = {
+  args: {
+    variant: "primary",
+    size: "medium",
+    theme: "light",
+    placeholder: "검색어를 입력해 주세요.",
   },
 };
 
@@ -87,32 +92,30 @@ export const Large: Story = {
     variant: "primary",
     size: "large",
     theme: "light",
-    placeholder: "Large Input",
+    placeholder: "검색어를 입력해 주세요.",
   },
 };
 
-export const DarkTheme: Story = {
-  args: {
-    variant: "primary",
-    size: "medium",
-    theme: "dark",
-    placeholder: "Dark Theme Input",
-  },
-  parameters: {
-    backgrounds: { default: "dark" },
-  },
-};
-
-export const FullWidth: Story = {
+export const WithIcon: Story = {
   args: {
     variant: "primary",
     size: "medium",
     theme: "light",
-    fullWidth: true,
-    placeholder: "Full Width Input",
-  },
-  parameters: {
-    layout: "padded",
+    placeholder: "검색어를 입력해 주세요.",
+    icon: (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+          fill="currentColor"
+        />
+      </svg>
+    ),
   },
 };
 
@@ -121,128 +124,70 @@ export const Disabled: Story = {
     variant: "primary",
     size: "medium",
     theme: "light",
+    placeholder: "검색어를 입력해 주세요.",
     disabled: true,
-    placeholder: "Disabled Input",
   },
 };
 
-export const Error: Story = {
+export const DarkTheme: Story = {
   args: {
     variant: "primary",
     size: "medium",
-    theme: "light",
-    error: true,
-    placeholder: "Error Input",
+    theme: "dark",
+    placeholder: "검색어를 입력해 주세요.",
+  },
+  parameters: {
+    backgrounds: { default: "dark" },
   },
 };
 
-export const WithLeftIcon: Story = {
-  args: {
-    variant: "primary",
-    size: "medium",
-    theme: "light",
-    placeholder: "Input with Icon",
-    leftIcon: <span>🔍</span>,
-  },
-};
-
-export const WithRightIcon: Story = {
-  args: {
-    variant: "primary",
-    size: "medium",
-    theme: "light",
-    placeholder: "Input with Icon",
-    rightIcon: <span>✓</span>,
-  },
-};
-
-export const WithBothIcons: Story = {
-  args: {
-    variant: "primary",
-    size: "medium",
-    theme: "light",
-    placeholder: "Input",
-    leftIcon: <span>🔍</span>,
-    rightIcon: <span>✓</span>,
-  },
-};
-
-export const AllVariants: Story = {
-  args: {},
+export const AllVariantsLight: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-        <Input variant="primary" size="small" placeholder="Primary Small" />
-        <Input variant="primary" size="medium" placeholder="Primary Medium" />
-        <Input variant="primary" size="large" placeholder="Primary Large" />
-      </div>
-      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-        <Input variant="secondary" size="small" placeholder="Secondary Small" />
-        <Input
-          variant="secondary"
-          size="medium"
-          placeholder="Secondary Medium"
-        />
-        <Input variant="secondary" size="large" placeholder="Secondary Large" />
-      </div>
-      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-        <Input variant="tertiary" size="small" placeholder="Tertiary Small" />
-        <Input variant="tertiary" size="medium" placeholder="Tertiary Medium" />
-        <Input variant="tertiary" size="large" placeholder="Tertiary Large" />
-      </div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <Input
+        variant="primary"
+        size="medium"
+        theme="light"
+        placeholder="Primary variant"
+      />
+      <Input
+        variant="secondary"
+        size="medium"
+        theme="light"
+        placeholder="Secondary variant"
+      />
+      <Input
+        variant="tertiary"
+        size="medium"
+        theme="light"
+        placeholder="Tertiary variant"
+      />
     </div>
   ),
 };
 
-export const AllStates: Story = {
-  args: {},
+export const AllSizes: Story = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-        <Input variant="primary" placeholder="Normal" />
-        <Input variant="primary" disabled placeholder="Disabled" />
-        <Input variant="primary" error placeholder="Error" />
-      </div>
-      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-        <Input variant="secondary" placeholder="Normal" />
-        <Input variant="secondary" disabled placeholder="Disabled" />
-        <Input variant="secondary" error placeholder="Error" />
-      </div>
-      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-        <Input variant="tertiary" placeholder="Normal" />
-        <Input variant="tertiary" disabled placeholder="Disabled" />
-        <Input variant="tertiary" error placeholder="Error" />
-      </div>
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <Input
+        variant="primary"
+        size="small"
+        theme="light"
+        placeholder="Small size"
+      />
+      <Input
+        variant="primary"
+        size="medium"
+        theme="light"
+        placeholder="Medium size"
+      />
+      <Input
+        variant="primary"
+        size="large"
+        theme="light"
+        placeholder="Large size"
+      />
     </div>
   ),
 };
 
-export const AllThemes: Story = {
-  args: {},
-  render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-      <div>
-        <h3 style={{ marginBottom: "1rem" }}>Light Theme</h3>
-        <div style={{ display: "flex", gap: "1rem" }}>
-          <Input variant="primary" theme="light" placeholder="Primary" />
-          <Input variant="secondary" theme="light" placeholder="Secondary" />
-          <Input variant="tertiary" theme="light" placeholder="Tertiary" />
-        </div>
-      </div>
-      <div
-        style={{
-          padding: "1rem",
-          backgroundColor: "#1a1a1a",
-          borderRadius: "8px",
-        }}
-      >
-        <h3 style={{ marginBottom: "1rem", color: "white" }}>Dark Theme</h3>
-        <div style={{ display: "flex", gap: "1rem" }}>
-          <Input variant="primary" theme="dark" placeholder="Primary" />
-          <Input variant="secondary" theme="dark" placeholder="Secondary" />
-          <Input variant="tertiary" theme="dark" placeholder="Tertiary" />
-        </div>
-      </div>
-    </div>
-  ),
-};
