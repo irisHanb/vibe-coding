@@ -137,13 +137,15 @@ export const Selectbox: React.FC<SelectboxProps> = ({
         >
           {displayText}
         </span>
-        <Image
-          src="/icons/arrow_drop_down.svg"
-          alt="dropdown arrow"
-          width={24}
-          height={24}
-          className={`${styles.arrow} ${isOpen ? styles.arrowOpen : ""}`}
-        />
+        <span className={`${styles.arrowContainer}`}>
+          <Image
+            src="/icons/arrow_drop_down.svg"
+            alt="dropdown arrow"
+            width={8.6}
+            height={4.7}
+            className={`${styles.arrow} ${isOpen ? styles.arrowOpen : ""}`}
+          />
+        </span>
       </div>
       {isOpen && !disabled && (
         <div className={dropdownClasses} role="listbox">

@@ -29,7 +29,6 @@
 .input {
   flex: 1;
   border: none;
-  outline: none;
   background: transparent;
   font-family: var(--font-family-kr);
   color: inherit;
