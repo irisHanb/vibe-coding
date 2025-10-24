@@ -9,9 +9,29 @@
 }
 
 .search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 1168px;
   height: 48px;
-  background-color: var(--color-gray-05);
+}
+
+.searchLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.selectbox {
+  width: 120px;
+}
+
+.searchbar {
+  width: 320px;
+}
+
+.writeButton {
+  width: 110px;
 }
 
 .gap2 {
