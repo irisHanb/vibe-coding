@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Selectbox, SelectboxOption } from "@/commons/components/selectbox";
 import { SearchBar } from "@/commons/components/searchbar";
 import Button from "@/commons/components/button";
+import { Pagination } from "@/commons/components/pagination";
 import { EMOTION, EMOTION_INFO, EmotionType } from "@/commons/constants/enum";
 import styles from "./styles.module.css";
 
@@ -105,6 +106,8 @@ const mockDiaries: DiaryCard[] = [
 
 export default function Diaries() {
   const [selectedFilter, setSelectedFilter] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = 3;
 
   const filterOptions: SelectboxOption[] = [
     { value: "all", label: "전체" },
@@ -129,6 +132,11 @@ export default function Diaries() {
 
   const handleDeleteClick = (id: number) => {
     console.log("삭제:", id);
+  };
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    console.log("페이지 변경:", page);
   };
 
   return (
@@ -216,7 +224,16 @@ export default function Diaries() {
         ))}
       </div>
       <div className={styles.gap3}></div>
-      <div className={styles.pagination}></div>
+      <div className={styles.pagination}>
+        <Pagination
+          variant="primary"
+          size="medium"
+          theme="light"
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      </div>
       <div className={styles.gap4}></div>
     </div>
   );
