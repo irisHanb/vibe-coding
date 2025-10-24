@@ -5,7 +5,103 @@ import Image from "next/image";
 import { Selectbox, SelectboxOption } from "@/commons/components/selectbox";
 import { SearchBar } from "@/commons/components/searchbar";
 import Button from "@/commons/components/button";
+import { EMOTION, EMOTION_INFO, EmotionType } from "@/commons/constants/enum";
 import styles from "./styles.module.css";
+
+interface DiaryCard {
+  id: number;
+  emotion: EmotionType;
+  date: string;
+  title: string;
+  image: string;
+}
+
+const mockDiaries: DiaryCard[] = [
+  {
+    id: 1,
+    emotion: EMOTION.SAD,
+    date: "2024. 03. 12",
+    title: "타이틀 영역 입니다. 한줄까지만 노출 됩니다.",
+    image: EMOTION_INFO[EMOTION.SAD].iconM,
+  },
+  {
+    id: 2,
+    emotion: EMOTION.SURPRISE,
+    date: "2024. 03. 12",
+    title: "타이틀 영역 입니다.",
+    image: EMOTION_INFO[EMOTION.SURPRISE].iconM,
+  },
+  {
+    id: 3,
+    emotion: EMOTION.ANGRY,
+    date: "2024. 03. 12",
+    title: "타이틀 영역 입니다.",
+    image: EMOTION_INFO[EMOTION.ANGRY].iconM,
+  },
+  {
+    id: 4,
+    emotion: EMOTION.HAPPY,
+    date: "2024. 03. 12",
+    title: "타이틀 영역 입니다.",
+    image: EMOTION_INFO[EMOTION.HAPPY].iconM,
+  },
+  {
+    id: 5,
+    emotion: EMOTION.ETC,
+    date: "2024. 03. 12",
+    title: "타이틀 영역 입니다. 한줄까지만 노출 됩니다.",
+    image: EMOTION_INFO[EMOTION.ETC].iconM,
+  },
+  {
+    id: 6,
+    emotion: EMOTION.SURPRISE,
+    date: "2024. 03. 12",
+    title: "타이틀 영역 입니다.",
+    image: EMOTION_INFO[EMOTION.SURPRISE].iconM,
+  },
+  {
+    id: 7,
+    emotion: EMOTION.ANGRY,
+    date: "2024. 03. 12",
+    title: "타이틀 영역 입니다.",
+    image: EMOTION_INFO[EMOTION.ANGRY].iconM,
+  },
+  {
+    id: 8,
+    emotion: EMOTION.HAPPY,
+    date: "2024. 03. 12",
+    title: "타이틀 영역 입니다.",
+    image: EMOTION_INFO[EMOTION.HAPPY].iconM,
+  },
+  {
+    id: 9,
+    emotion: EMOTION.SAD,
+    date: "2024. 03. 12",
+    title: "타이틀 영역 입니다. 한줄까지만 노출 됩니다.",
+    image: EMOTION_INFO[EMOTION.SAD].iconM,
+  },
+  {
+    id: 10,
+    emotion: EMOTION.SURPRISE,
+    date: "2024. 03. 12",
+    title: "타이틀 영역 입니다.",
+    image: EMOTION_INFO[EMOTION.SURPRISE].iconM,
+  },
+  {
+    id: 11,
+    emotion: EMOTION.ANGRY,
+    date: "2024. 03. 12",
+    title: "타이틀 영역 입니다.",
+    image: EMOTION_INFO[EMOTION.ANGRY].iconM,
+  },
+  {
+    id: 12,
+    emotion: EMOTION.HAPPY,
+    date: "2024. 03. 12",
+    title: "타이틀 영역 입니다.",
+    image: EMOTION_INFO[EMOTION.HAPPY].iconM,
+  },
+];
 
 export default function Diaries() {
   const [selectedFilter, setSelectedFilter] = useState("all");
@@ -29,6 +125,10 @@ export default function Diaries() {
 
   const handleWriteClick = () => {
     console.log("일기쓰기 클릭");
+  };
+
+  const handleDeleteClick = (id: number) => {
+    console.log("삭제:", id);
   };
 
   return (
@@ -73,7 +173,48 @@ export default function Diaries() {
         </Button>
       </div>
       <div className={styles.gap2}></div>
-      <div className={styles.main}></div>
+      <div className={styles.main}>
+        {mockDiaries.map((diary) => (
+          <div key={diary.id} className={styles.diaryCard}>
+            <div className={styles.cardImageWrapper}>
+              <div className={styles.deleteButtonWrapper}>
+                <button
+                  className={styles.deleteButton}
+                  onClick={() => handleDeleteClick(diary.id)}
+                >
+                  <Image
+                    src="/icons/close_outline_light_m_no.svg"
+                    alt="delete"
+                    width={20}
+                    height={20}
+                  />
+                </button>
+              </div>
+              <div className={styles.imageContainer}>
+                <Image
+                  src={diary.image}
+                  alt={diary.title}
+                  width={274}
+                  height={208}
+                  className={styles.cardImage}
+                />
+              </div>
+            </div>
+            <div className={styles.cardContent}>
+              <div className={styles.cardInfo}>
+                <span
+                  className={styles.emotion}
+                  style={{ color: EMOTION_INFO[diary.emotion].color }}
+                >
+                  {EMOTION_INFO[diary.emotion].label}
+                </span>
+                <span className={styles.date}>{diary.date}</span>
+              </div>
+              <div className={styles.cardTitle}>{diary.title}</div>
+            </div>
+          </div>
+        ))}
+      </div>
       <div className={styles.gap3}></div>
       <div className={styles.pagination}></div>
       <div className={styles.gap4}></div>
