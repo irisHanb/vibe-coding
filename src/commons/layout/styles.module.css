@@ -112,7 +112,6 @@
 .main {
   width: 1168px;
   flex: 1;
-  background-color: var(--color-gray-05);
 }
 
 /* Footer Styles */
