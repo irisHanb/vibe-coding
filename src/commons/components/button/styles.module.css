@@ -24,15 +24,15 @@
 /* Size Variants */
 .small {
   height: 36px;
-  padding: 0 16px;
+  /* padding: 0 16px; */
   font-size: 14px;
   letter-spacing: -0.14px;
   line-height: 1.71; /* 24px / 14px */
 }
 
 .medium {
-  height: 48px;
-  padding: 0 10px;
+  height: 40px;
+  /* padding: 0 10px; */
   font-size: 18px;
   letter-spacing: -0.18px;
   line-height: 1.33; /* 24px / 18px */
@@ -40,7 +40,7 @@
 
 .large {
   height: 56px;
-  padding: 0 32px;
+  /* padding: 0 32px; */
   font-size: 20px;
   letter-spacing: -0.2px;
   line-height: 1.2; /* 24px / 20px */
@@ -78,7 +78,7 @@
 .secondary.light {
   background-color: transparent;
   color: var(--color-gray-black);
-  border: 1px solid var(--color-gray-black);
+  border: 1px solid var(--color-gray-20);
 }
 
 .secondary.light:hover:not(:disabled) {
